@@ -1,5 +1,22 @@
 i18n.map('is_IS', {
+	title: 'Skátakot',
+	createAccount: 'Stofna nýjan aðgang',
+	ifYouAlreadyHaveAnAccount: 'Þegar með aðgang?',
+	signUpWithYourEmailAddress: 'Nýskráning með netfangi',
 	name: 'Nafn',
 	longitude: 'Lengdargráða',
-	latitude: 'Breiddargráða'
+	latitude: 'Breiddargráða',
+	configure: 'Stilla',
+	OR: 'EÐA',
+	emailAddress: 'Netfang',
+	confirmPassword: 'Staðfesta lykilorð',
+	verificationPending: 'Verification pending',
+	verificationPendingDetails: 'Details',
+	email: 'Netfang',
+	password: 'Lykilorð',
+	dontHaveAnAccount: 'Ekki með aðgang?',
+	signUp: 'Nýskráning',
+	signIn: 'Innskráning',
+	signin: 'Skráðu þig inn',
+	forgotPassword: 'Gleymt lykilorð'
 });

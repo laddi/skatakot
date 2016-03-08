@@ -8,6 +8,8 @@ Meteor.startup(function() {
 	i18n.showMissing(true);
 	i18n.setDefaultLanguage('is_IS');
 
+	document.title = i18n('title');
+
 	// Getting initial position
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(position => {

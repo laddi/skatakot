@@ -8,7 +8,7 @@ Template.map.helpers({
 				center: new google.maps.LatLng(position.latitude, position.longitude),
 				zoom: mapData.zoom.get(),
 				scaleControl: true,
-				mapTypeId: mapData.type.get() || google.maps.MapTypeId.HYBRID
+				mapTypeId: mapData.type.get() || google.maps.MapTypeId.TERRAIN
 			};
 		}
 	},
@@ -28,7 +28,7 @@ Template.map.onCreated(function() {
 	// We can use the `ready` callback to interact with the map API once the map is ready.
 	GoogleMaps.ready('hutMap', function(map) {
 		if (!mapData.type.get()) {
-			mapData.type.set(google.maps.MapTypeId.HYBRID);
+			mapData.type.set(google.maps.MapTypeId.TERRAIN);
 		}
 
 		// Add markers for all the huts
