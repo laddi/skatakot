@@ -6,4 +6,11 @@ Meteor.startup(function() {
 		}
 		return Huts.find();
 	});
+
+	Meteor.publish('Groups', function(id) {
+		if (id) {
+			return Groups.find({ _id: id });
+		}
+		return Groups.find();
+	});
 });

@@ -18,5 +18,12 @@ i18n.map('is_IS', {
 	signUp: 'Nýskráning',
 	signIn: 'Innskráning',
 	signin: 'Skráðu þig inn',
-	forgotPassword: 'Gleymt lykilorð'
+	forgotPassword: 'Gleymt lykilorð',
+	'status': 'Ástand',
+	'status-in-use': 'Í notkun',
+	'status-needs-repair': 'Ekki í notkun',
+	'status-destroyed': 'Ónýtur/Horfinn',
+	sleeps: 'Svefnpláss',
+	size: 'Stærð',
+	group: 'Félag'
 });

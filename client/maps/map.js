@@ -8,7 +8,7 @@ Template.map.helpers({
 				center: new google.maps.LatLng(position.latitude, position.longitude),
 				zoom: mapData.zoom.get(),
 				scaleControl: true,
-				mapTypeId: mapData.type.get() || google.maps.MapTypeId.TERRAIN
+				mapTypeId: mapData.type.get() || google.maps.MapTypeId.HYBRID
 			};
 		}
 	},
@@ -28,17 +28,32 @@ Template.map.onCreated(function() {
 	// We can use the `ready` callback to interact with the map API once the map is ready.
 	GoogleMaps.ready('hutMap', function(map) {
 		if (!mapData.type.get()) {
-			mapData.type.set(google.maps.MapTypeId.TERRAIN);
+			mapData.type.set(google.maps.MapTypeId.HYBRID);
 		}
+
+		var image = {
+			size: new google.maps.Size(100, 100),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(15, 30),
+			scaledSize: new google.maps.Size(30, 30)
+		};
 
 		// Add markers for all the huts
 		let huts = Huts.find().fetch();
 		_.each(huts, function(hut) {
+			var url = '/in-use.svg';
+			if (hut.status === 'status-needs-repair') {
+				url = '/needs-repair.svg';
+			} else if (hut.status === 'status-destroyed') {
+				url = '/destroyed.svg';
+			}
+
 			let marker = new google.maps.Marker({
 				position: new google.maps.LatLng(hut.latitude, hut.longitude),
 				animation: google.maps.Animation.DROP,
 				map: map.instance,
-				title: hut.name
+				title: hut.name,
+				icon: _.extend(image, { url })
 			});
 
 			google.maps.event.addListener(marker, 'click', function() {

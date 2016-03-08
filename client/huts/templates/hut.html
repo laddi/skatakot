@@ -1,6 +1,21 @@
 <template name="hut">
 	<div id="main-container" class="container">
 		<h1>{{hut.name}}</h1>
-		<p>{{hut.description}}</p>
+		<p>{{{addBreaks hut.description}}}</p>
+
+		<dl class="dl-horizontal">
+			{{#if hut.group}}
+				<dt>{{i18n 'group'}}</dt>
+				<dd>{{hut.group.name}}</dd>
+			{{/if}}
+			{{#if hut.sleeps}}
+				<dt>{{i18n 'sleeps'}}</dt>
+				<dd>{{hut.sleeps}}</dd>
+			{{/if}}
+			{{#if hut.size}}
+				<dt>{{i18n 'size'}}</dt>
+				<dd>{{hut.size}}m<sup>2</sup></dd>
+			{{/if}}
+		</dl>
 	</div>
 </template>
