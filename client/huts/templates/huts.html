@@ -1,0 +1,23 @@
+<template name="huts">
+	<div id="main-container" class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>{{i18n 'name'}}</th>
+					<th>{{i18n 'longitude'}}</th>
+					<th>{{i18n 'latitude'}}</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{{#each huts}}
+					<tr>
+						<td><a href="{{pathFor 'hut' hutId=_id}}">{{name}}</a></td>
+						<td>{{longitude}}</td>
+						<td>{{latitude}}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>
