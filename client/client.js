@@ -4,18 +4,24 @@ mapData = {
 	type: new ReactiveVar(null)
 };
 
+// Getting initial position
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(position => {
+		mapData.position.set({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+	}, () => {
+		mapData.position.set({ latitude: '64.997277', longitude: '-18.606130' });
+		mapData.zoom.set(7);
+	});
+} else {
+	mapData.position.set({ latitude: '64.997277', longitude: '-18.606130' });
+	mapData.zoom.set(7);
+}
+
 Meteor.startup(function() {
 	i18n.showMissing(true);
 	i18n.setDefaultLanguage('is_IS');
 
 	document.title = i18n('title');
-
-	// Getting initial position
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(position => {
-			mapData.position.set({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-		});
-	}
 
 	AccountsEntry.config({
 		homeRoute: '/',				   // mandatory - path to redirect to after sign-out
