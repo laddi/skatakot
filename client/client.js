@@ -4,8 +4,6 @@ mapData = {
 	type: new ReactiveVar(null)
 };
 
-Meteor.subscribe('Groups');
-
 // Getting initial position
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(position => {

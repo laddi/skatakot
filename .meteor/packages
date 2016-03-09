@@ -40,3 +40,8 @@ accounts-ui
 zimme:active-route
 multiply:iron-router-progress
 anti:i18n
+yogiben:autoform-file
+cfs:standard-packages
+cfs:filesystem
+cfs:gridfs@0.0.33
+cfs:graphicsmagick

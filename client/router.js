@@ -5,7 +5,7 @@ Router.map(function() {
 		template: 'map',
 		title: 'Map',
 		waitOn: function() {
-			return Meteor.subscribe('Huts');
+			return Meteor.subscribe('huts');
 		}
 	});
 
@@ -15,7 +15,7 @@ Router.map(function() {
 		template: 'huts',
 		title: 'Huts',
 		waitOn: function() {
-			return Meteor.subscribe('Huts');
+			return Meteor.subscribe('huts');
 		}
 	});
 
@@ -27,7 +27,7 @@ Router.map(function() {
 		waitOn: function() {
 			// returning a subscription handle or an array of subscription handles
 			// adds them to the wait list.
-			return Meteor.subscribe('Huts', this.params.hutId);
+			return Meteor.subscribe('huts', this.params.hutId);
 		},
 		data: function() {
 			return {

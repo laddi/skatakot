@@ -1,5 +1,6 @@
 Template.huts.onCreated(function() {
 	this.subscribe('huts');
+	this.subscribe('groups');
 });
 
 Template.huts.helpers({

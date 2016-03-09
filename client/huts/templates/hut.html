@@ -17,5 +17,11 @@
 				<dd>{{hut.size}}m<sup>2</sup></dd>
 			{{/if}}
 		</dl>
+
+		{{#each images}}
+			<a href="{{this.url store='images'}}" target="_blank">
+				<img src="{{this.url store='thumbs'}}" alt="" class="thumbnail" />
+			</a>
+		{{/each}}
 	</div>
 </template>
