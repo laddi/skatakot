@@ -6,7 +6,7 @@ Template.hut.onCreated(function() {
 	// We can use the `ready` callback to interact with the map API once the map is ready.
 	GoogleMaps.ready('hutMap', function(map) {
 		var image = {
-			size: new google.maps.Size(100, 100),
+			size: new google.maps.Size(40, 40),
 			origin: new google.maps.Point(0, 0),
 			anchor: new google.maps.Point(20, 40),
 			scaledSize: new google.maps.Size(40, 40)

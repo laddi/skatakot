@@ -38,24 +38,30 @@ Meteor.startup(function() {
 	// code to run on server at startup
 	Meteor.publish('huts', function(id) {
 		if (id) {
-			return [
-				Huts.find({ _id: id }),
-				Groups.find({
-					$query: { _id: Huts.findOne(id).owner },
-				}),
-				Images.find({
+			let hut = Huts.findOne(id);
+			let array = [
+				Huts.find({ _id: id })
+			];
+
+			if (hut.owner) {
+				array.push(Groups.find({
+					$query: { _id: hut.owner },
+				}));
+			}
+
+			if (hut.images) {
+				array.push(Images.find({
 					$query: { _id: { $in: Huts.findOne(id).images } },
 					$orderby: { uploadedAt: -1 }
-				})
-			];
+				}));
+			}
+
+			return array;
 		}
 		return Huts.find();
 	});
 
-	Meteor.publish('groups', function(id) {
-		if (id) {
-			return Groups.find({ _id: id });
-		}
+	Meteor.publish('groups', function() {
 		return Groups.find();
 	});
 });
