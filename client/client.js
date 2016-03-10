@@ -18,6 +18,7 @@ if (navigator.geolocation) {
 }
 
 Meteor.startup(function() {
+	GoogleMaps.load();
 	i18n.showMissing(true);
 	i18n.setDefaultLanguage('is_IS');
 
