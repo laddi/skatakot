@@ -1,7 +1,7 @@
 http://skatavefur.skatar.is/vefur/default.asp?ItemGroupID=7&ItemID=1214
 
 To do:
-- Gera kort reactive (http://meteorcapture.com/how-to-create-a-reactive-google-map/)
+- Setja inn alla skála
 
 Skálar:
 - Arnarsetur - https://www.facebook.com/Arnarsetur/info?tab=page_info

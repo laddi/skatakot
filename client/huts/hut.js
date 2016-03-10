@@ -10,10 +10,16 @@ Template.hut.onCreated(function() {
 				markers[hut._id] = marker;
 			},
 
-			changed: hut => {
-				markers[hut._id].setPosition(new google.maps.LatLng(hut.latitude, hut.longitude));
-				markers[hut._id].setTitle(hut.name);
-				markers[hut._id].setIcon(getIconImage(hut.status));
+			changed: (hut, oldHut) => {
+				if (hut.latitude !== oldHut.latitude || hut.longitude !== oldHut.longitude) {
+					markers[hut._id].setPosition(new google.maps.LatLng(hut.latitude, hut.longitude));
+				}
+				if (hut.name !== oldHut.name) {
+					markers[hut._id].setTitle(hut.name);
+				}
+				if (hut.status !== oldHut.status) {
+					markers[hut._id].setIcon(getIconImage(hut.status));
+				}
 			}
 		});
 	});

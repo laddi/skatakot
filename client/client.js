@@ -22,6 +22,8 @@ getIconUrl = function(status) {
 		url = '/needs-repair.svg';
 	} else if (status === 'status-destroyed') {
 		url = '/destroyed.svg';
+	} else if (status === 'status-rebuilt') {
+		url = '/rebuilt.svg';
 	}
 
 	return url;

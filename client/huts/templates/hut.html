@@ -29,6 +29,10 @@
 								<dd>{{hut.group.name}}</dd>
 								<dt>{{i18n 'status'}}</dt>
 								<dd>{{i18n hut.status}}</dd>
+								{{#if hut.currentLocation}}
+									<dt>{{i18n 'currentLocation'}}</dt>
+									<dd>{{hut.currentLocation}}</dd>
+								{{/if}}
 
 								{{#if hut.year}}
 									<dt>{{i18n 'year'}}</dt>
