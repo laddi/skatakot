@@ -7,7 +7,6 @@ Template.map.helpers({
 			return {
 				center: new google.maps.LatLng(position.latitude, position.longitude),
 				zoom: mapData.zoom.get(),
-				scaleControl: true,
 				mapTypeId: mapData.type.get() || google.maps.MapTypeId.HYBRID
 			};
 		}
@@ -26,16 +25,16 @@ Template.map.onCreated(function() {
 	GoogleMaps.load();
 
 	// We can use the `ready` callback to interact with the map API once the map is ready.
-	GoogleMaps.ready('hutMap', function(map) {
+	GoogleMaps.ready('hutsMap', function(map) {
 		if (!mapData.type.get()) {
 			mapData.type.set(google.maps.MapTypeId.HYBRID);
 		}
 
 		var image = {
-			size: new google.maps.Size(100, 100),
+			size: new google.maps.Size(512, 512),
 			origin: new google.maps.Point(0, 0),
-			anchor: new google.maps.Point(15, 30),
-			scaledSize: new google.maps.Size(30, 30)
+			anchor: new google.maps.Point(20, 40),
+			scaledSize: new google.maps.Size(40, 40)
 		};
 
 		// Add markers for all the huts

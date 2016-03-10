@@ -16,10 +16,66 @@ body {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: 2em 0;
 }
 
 .map-container {
 	width: 100%;
 	height: 100%;
+}
+
+.hut-map {
+	width: 100%;
+	height: 300px;
+}
+
+.hut-details {
+	margin-top: 30px;
+
+	dl {
+		margin-bottom: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.hut-details {
+		.dl-horizontal {
+			dt {
+				width: 100px;
+			}
+			dd {
+				margin-left: 120px;
+			}
+		}
+	}
+}
+
+@media (max-width: 719px) {
+	.huts-table {
+		thead, tbody {
+			tr {
+				th:nth-child(n+4), td:nth-child(n+4) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.huts-table {
+		thead, tbody {
+			tr {
+				th:nth-child(n+3), td:nth-child(n+3) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.thumbnail {
+	img {
+		width: 100%;
+		height: auto;
+	}
 }

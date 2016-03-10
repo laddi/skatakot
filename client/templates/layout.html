@@ -8,12 +8,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{pathFor 'map'}}">Skátakot</a>
+				<a class="navbar-brand" href="{{pathFor 'map'}}">{{i18n 'title'}}</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="{{isActiveRoute 'map'}}"><a href="{{pathFor 'map'}}">Kort</a></li>
-					<li class="{{isActiveRoute regex='hut|huts'}}"><a href="{{pathFor 'huts'}}">Listi</a></li>
+					<li class="{{isActiveRoute 'map'}}"><a href="{{pathFor 'map'}}">{{i18n 'map'}}</a></li>
+					<li class="{{isActiveRoute regex='hut|huts'}}"><a href="{{pathFor 'huts'}}">{{i18n 'huts'}}</a></li>
 				</ul>
 			</div>
 		</div>

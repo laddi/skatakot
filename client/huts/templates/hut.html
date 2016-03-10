@@ -1,27 +1,66 @@
 <template name="hut">
-	<div id="main-container" class="container">
-		<h1>{{hut.name}}</h1>
-		<p>{{{addBreaks hut.description}}}</p>
+	{{#if isReady}}
+		<div id="main-container" class="container">
+			<div class="row">
+				<div class="col-md-8 hut-body">
+					<h1>{{hut.name}}</h1>
+					<p>{{{addBreaks hut.description}}}</p>
 
-		<dl class="dl-horizontal">
-			{{#if hut.group}}
-				<dt>{{i18n 'group'}}</dt>
-				<dd>{{hut.group.name}}</dd>
-			{{/if}}
-			{{#if hut.sleeps}}
-				<dt>{{i18n 'sleeps'}}</dt>
-				<dd>{{hut.sleeps}}</dd>
-			{{/if}}
-			{{#if hut.size}}
-				<dt>{{i18n 'size'}}</dt>
-				<dd>{{hut.size}}m<sup>2</sup></dd>
-			{{/if}}
-		</dl>
+					{{#if images}}
+						<hr />
+						<div class="row">
+							{{#each images}}
+								<div class="col-xs-3 col-md-2">
+									<a href="{{this.url store='images'}}" target="_blank" class="thumbnail">
+										<img src="{{this.url store='thumbs'}}" alt="" />
+									</a>
+								</div>
+							{{/each}}
+						</div>
+					{{/if}}
+				</div>
 
-		{{#each images}}
-			<a href="{{this.url store='images'}}" target="_blank">
-				<img src="{{this.url store='thumbs'}}" alt="" class="thumbnail" />
-			</a>
-		{{/each}}
-	</div>
+				<div class="col-md-4 hut-details">
+					<div class="panel panel-default">
+						<div class="panel-heading">{{i18n 'details'}}</div>
+						<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>{{i18n 'group'}}</dt>
+								<dd>{{hut.group.name}}</dd>
+								<dt>{{i18n 'status'}}</dt>
+								<dd>{{i18n hut.status}}</dd>
+
+								{{#if hut.year}}
+									<dt>{{i18n 'year'}}</dt>
+									<dd>{{hut.year}}</dd>
+								{{/if}}
+								{{#if hut.sleeps}}
+									<dt>{{i18n 'sleeps'}}</dt>
+									<dd>{{hut.sleeps}}</dd>
+								{{/if}}
+								{{#if hut.size}}
+									<dt>{{i18n 'size'}}</dt>
+									<dd>{{hut.size}}m<sup>2</sup></dd>
+								{{/if}}
+
+								<dt>{{i18n 'electricity'}}</dt>
+								<dd>{{#if hut.electricity}}{{i18n 'yes'}}{{else}}{{i18n 'no'}}{{/if}}</dd>
+								<dt>{{i18n 'runningWater'}}</dt>
+								<dd>{{#if hut.runningWater}}{{i18n 'yes'}}{{else}}{{i18n 'no'}}{{/if}}</dd>
+							</dl>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">{{i18n 'map'}}</div>
+						<div class="panel-body hut-map">
+							{{> googleMap name="hutMap" options=mapOptions}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{else}}
+		{{> spinner}}
+	{{/if}}
 </template>
