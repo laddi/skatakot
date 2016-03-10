@@ -9,6 +9,7 @@ i18n.map('is_IS', {
 	email: 'Netfang',
 	emailAddress: 'Netfang',
 	forgotPassword: 'Gleymt lykilorð',
+	gps: 'GPS hnit',
 	group: 'Umsjón',
 	huts: 'Skálar',
 	ifYouAlreadyHaveAnAccount: 'Þegar með aðgang?',

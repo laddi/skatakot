@@ -11,7 +11,7 @@
 						<div class="row">
 							{{#each images}}
 								<div class="col-xs-3 col-md-2">
-									<a href="{{this.url}}" target="_blank" class="thumbnail">
+									<a href="{{pathFor 'image' hutId=hut._id imageId=this._id}}" class="thumbnail">
 										<img src="{{this.url store='thumbs'}}" alt="" />
 									</a>
 								</div>
@@ -51,6 +51,8 @@
 								<dd>{{#if hut.electricity}}{{i18n 'yes'}}{{else}}{{i18n 'no'}}{{/if}}</dd>
 								<dt>{{i18n 'runningWater'}}</dt>
 								<dd>{{#if hut.runningWater}}{{i18n 'yes'}}{{else}}{{i18n 'no'}}{{/if}}</dd>
+								<dt>{{i18n 'gps'}}</dt>
+								<dd>{{convertToDegrees hut.latitude hut.longitude}}</dd>
 							</dl>
 						</div>
 					</div>

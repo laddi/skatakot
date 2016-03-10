@@ -35,4 +35,22 @@ Router.map(function() {
 			};
 		}
 	});
+
+	this.route('image', {
+		path: 'huts/:hutId/:imageId',
+		layoutTemplate: 'layout',
+		template: 'image',
+		title: 'Image',
+		waitOn: function() {
+			// returning a subscription handle or an array of subscription handles
+			// adds them to the wait list.
+			return Meteor.subscribe('huts', this.params.hutId);
+		},
+		data: function() {
+			return {
+				hutId: this.params.hutId,
+				imageId: this.params.imageId
+			};
+		}
+	});
 });

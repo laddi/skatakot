@@ -1,0 +1,16 @@
+<template name="image">
+	<div id="main-container" class="container">
+		<div class="row">
+			<div class="col-md-12 image-body">
+				<h3 class="text-center">
+					<a href="{{pathFor 'hut' hutId=hut._id}}"><span class="fui-arrow-left"></span></a>
+					{{hut.name}}
+				</h3>
+				<img src="{{image.url}}" alt="" class="img-rounded img-responsive center-block" />
+				<p class="text-center">
+					<small>{{image.name}}</small>
+				</p>
+			</div>
+		</div>
+	</div>
+</template>

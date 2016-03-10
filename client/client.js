@@ -4,6 +4,31 @@ mapData = {
 	type: new ReactiveVar(null)
 };
 
+Blaze.registerHelper('convertToDegrees', function(latitude, longitude) {
+	// got dashes?
+	var latitudeHemisphere = 'N';
+	if (latitude.substr(0, 1) === '-') {
+		latitudeHemisphere = 'S';
+		latitude = latitude.substr(1, latitude.length - 1);
+	}
+
+	var longitudeDirection = 'E';
+	if (longitude.substr(0, 1) === '-') {
+		longitudeDirection = 'W';
+		longitude = longitude.substr(1, longitude.length - 1);
+	}
+
+	// degrees = degrees
+	latitutes = latitude.split('.');
+	longitudes = longitude.split('.');
+
+	// * 60 = mins
+	latitudeMinutes = (('0.' + latitutes[1]) * 60).toFixed(3);
+	longitudeMinutes = (('0.' + longitudes[1]) * 60).toFixed(3);
+
+	return `${latitutes[0]}°${latitudeMinutes}′${latitudeHemisphere} ${longitudes[0]}°${longitudeMinutes}′${longitudeDirection}`;
+});
+
 createMarker = function(map, hut) {
 	let marker = new google.maps.Marker({
 		position: new google.maps.LatLng(hut.latitude, hut.longitude),
