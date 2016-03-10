@@ -2,6 +2,10 @@ http://skatavefur.skatar.is/vefur/default.asp?ItemGroupID=7&ItemID=1214
 
 To do:
 - Setja inn alla skála
+- Bæta við 'Um verkefnið' síðu
+	- Tilgangur
+	- Credits
+	- Contact upplýsingar
 
 Skálar:
 - Arnarsetur - https://www.facebook.com/Arnarsetur/info?tab=page_info

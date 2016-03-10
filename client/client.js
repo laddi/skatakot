@@ -46,12 +46,12 @@ if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(position => {
 		mapData.position.set({ latitude: position.coords.latitude, longitude: position.coords.longitude });
 	}, () => {
-		mapData.position.set({ latitude: '64.997277', longitude: '-18.606130' });
-		mapData.zoom.set(7);
+		mapData.position.set(Meteor.settings.public.map.position);
+		mapData.zoom.set(Meteor.settings.public.map.zoom);
 	});
 } else {
-	mapData.position.set({ latitude: '64.997277', longitude: '-18.606130' });
-	mapData.zoom.set(7);
+	mapData.position.set(Meteor.settings.public.map.position);
+	mapData.zoom.set(Meteor.settings.public.map.zoom);
 }
 
 Meteor.startup(function() {
@@ -68,7 +68,7 @@ Meteor.startup(function() {
 		extraSignUpFields: [{			 // Add extra signup fields on the signup page
 			field: 'name',						   // The database property you want to store the data in
 			label: 'Full Name',					  // The html lable for the field
-			placeholder: 'Jón Jónsson',				 // A placeholder for the field
+			placeholder: 'John Doe',				 // A placeholder for the field
 			type: 'text',							// The type of field you want
 			required: true						   // Adds html 5 required property if true
 		}],
