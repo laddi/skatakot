@@ -4,6 +4,41 @@ mapData = {
 	type: new ReactiveVar(null)
 };
 
+createMarker = function(map, hut) {
+	let marker = new google.maps.Marker({
+		position: new google.maps.LatLng(hut.latitude, hut.longitude),
+		animation: google.maps.Animation.DROP,
+		map: map.instance,
+		title: hut.name,
+		icon: getIconImage(hut.status)
+	});
+
+	return marker;
+};
+
+getIconUrl = function(status) {
+	var url = '/in-use.svg';
+	if (status === 'status-needs-repair') {
+		url = '/needs-repair.svg';
+	} else if (status === 'status-destroyed') {
+		url = '/destroyed.svg';
+	}
+
+	return url;
+};
+
+getIconImage = function(status) {
+	let image = {
+		size: new google.maps.Size(512, 512),
+		origin: new google.maps.Point(0, 0),
+		anchor: new google.maps.Point(20, 40),
+		scaledSize: new google.maps.Size(40, 40),
+		url: getIconUrl(status)
+	};
+
+	return image;
+};
+
 // Getting initial position
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(position => {

@@ -1,44 +1,29 @@
 Template.hut.onCreated(function() {
+	let markers = {};
 	this.subscribe('huts', this.data.hutId);
 
-	this.autorun(() => {
-		let hut = Huts.findOne(this.data.hutId);
+	// We can use the `ready` callback to interact with the map API once the map is ready.
+	GoogleMaps.ready('hutMap', map => {
+		Huts.find({ _id: this.data.hutId }).observe({
+			added: hut => {
+				let marker = createMarker(map, hut);
+				markers[hut._id] = marker;
+			},
 
-		if (hut) {
-			// We can use the `ready` callback to interact with the map API once the map is ready.
-			GoogleMaps.ready('hutMap', function(map) {
-				var image = {
-					size: new google.maps.Size(40, 40),
-					origin: new google.maps.Point(0, 0),
-					anchor: new google.maps.Point(20, 40),
-					scaledSize: new google.maps.Size(40, 40)
-				};
-
-				// Add markers for the hut
-				var url = '/in-use.svg';
-				if (hut.status === 'status-needs-repair') {
-					url = '/needs-repair.svg';
-				} else if (hut.status === 'status-destroyed') {
-					url = '/destroyed.svg';
-				}
-
-				new google.maps.Marker({
-					position: new google.maps.LatLng(hut.latitude, hut.longitude),
-					animation: google.maps.Animation.DROP,
-					map: map.instance,
-					title: hut.name,
-					icon: _.extend(image, { url })
-				});
-			});
-		}
+			changed: hut => {
+				markers[hut._id].setPosition(new google.maps.LatLng(hut.latitude, hut.longitude));
+				markers[hut._id].setTitle(hut.name);
+				markers[hut._id].setIcon(getIconImage(hut.status));
+			}
+		});
 	});
 });
 
 Template.hut.helpers({
-	hut: () => Huts.findOne(),
+	hut: () => Huts.findOne(Template.instance().data.hutId),
 	images: () => Images.find(),
 	addBreaks(text) {
-		return text.replace(/(\r\n|\n|\r)/gm, '<br />');
+		return text && text.replace(/(\r\n|\n|\r)/gm, '<br />');
 	},
 	mapOptions: function() {
 		let hut = Huts.findOne(Template.instance().data.hutId);
