@@ -1,4 +1,14 @@
 i18n.map('is_IS', {
+	about: 'Um verkefnið',
+	'about.details': 'Verkefnið er hugmynd sem höfundur hefur gengið með í maganum lengi, ' +
+		'að skrá og kortleggja alla skátaskála landsins, hvort sem þeir eru enn í notkun, ' +
+		'þarnast viðhalds eða séu horfnir/brunnir/hvaðeina.  Áhugasamir eru hvattir til að senda ' +
+		'ábendingar, myndir, ítarlegar upplýsingar og ekki væri verra ef einhver lumaði á sögu ' +
+		'skálanna.  Vefurinn á að vera lifandi og upplýsingarnar á honum eins réttar og kostur er.',
+	builtWith: 'Tæknin',
+	'builtWith.details': 'Vefurinn er smíðaður í [Meteor](https://www.meteor.com) og keyrir á ' +
+		'[Node.js](https://nodejs.org/en/) með [MongoDB](https://www.mongodb.org) gagnabrunni ' +
+		'í bakenda.',
 	configure: 'Stilla',
 	confirmPassword: 'Staðfesta lykilorð',
 	createAccount: 'Stofna nýjan aðgang',
@@ -28,9 +38,11 @@ i18n.map('is_IS', {
 	size: 'Stærð',
 	sleeps: 'Svefnpláss',
 	status: 'Ástand',
+	'status-burnt': 'Brunninn',
 	'status-destroyed': 'Ónýtur/Horfinn',
 	'status-in-use': 'Í notkun',
 	'status-needs-repair': 'Ekki í notkun',
+	'status-privately-owned': 'Í einkaeigu',
 	'status-rebuilt': 'Endurbyggður',
 	title: 'Skátakot',
 	verificationPending: 'Verification pending',

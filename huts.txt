@@ -5,18 +5,13 @@ To do:
 - Laga villu í iPhone
 - Geta flett í myndum
 - Laga stafrófsröð í lista
+- Filtering
 - Bæta við 'Um verkefnið' síðu
 	- Tilgangur
 	- Credits
 	- Contact upplýsingar
 
 Skálar:
-Brekkusel, við rætur Vatnsskarðs, Skagafjarðarmegin
-Fluga - Skf. Borgarness
-Hreysi - Hellisheiði
-Skátastykki - Heimaey (http://skatar.is/faxi/default.asp?ItemGroupID=242&ItemID=1471)
-
-Hellisheiði:
 Umrenningur
 K16 (stundum nefndur Glaðheimar, jafnvel Glaumbær)
 Kaldakot
@@ -25,16 +20,19 @@ Hreysi
 
 - Arnarsetur - https://www.facebook.com/Arnarsetur/info?tab=page_info
 - Álfasel - Úlfljótsvatni
+- Brekkusel, við rætur Vatnsskarðs, Skagafjarðarmegin
 - Bæli - http://kopar.is/skataskalar/
 - Dalakot - Hellisheiði
 - Dyngja - Einherjar/Valkyrjan (66.0531097,-23.2164817) - http://skatamal.is/einherjarvalkyrjan/
 - Fálkafell - http://arnorbl.blog.is/blog/arnorbl/entry/1135534/, http://www.klakkur.is/?val=sidur&undir=55&auka=adstada
+- Fluga - Skf. Borgarness
 - Fossbúð - Úlfljótsvatni
 - Gamli - Hamrar, Akureyri
 - Glaumbær - Sleggjubeinsskarð, Hengill
 - Heiðaból - Reykjanes, ónýtur - 63.955959, -22.394776
 - Heiðarból
 - Hleiðra - Sunnan við Hafravatn
+- Hreysi - Hellisheiði
 - Hvellur - v/Elliðaárvatn
 - Hverahlíð - http://www.hraunbuar.is/felagid/skataskalinn-hverahlid
 - Jötunheimar
@@ -42,6 +40,7 @@ Hreysi
 - Lækjarbotnar - Lækjarbotnum
 - Skátafell - Skorradalur í Borgarfirði
 - Skátalundur - www.facebook.com/skatalundur
+- Skátastykki - Heimaey (http://skatar.is/faxi/default.asp?ItemGroupID=242&ItemID=1471)
 - Skýjaborgir - http://www.fjardarposturinn.is/images/FP-pdf/FP-2006-19-skjar.pdf, 63.867964, -22.066728
 - Valhöll - Vaðlaheiði, við gamla Vaðlaheiðarveginn
 - Vífilsbúð - Heiðmörk

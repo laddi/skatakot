@@ -1,0 +1,20 @@
+<template name="about">
+	<div id="main-container" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{i18n 'about'}}</h1>
+				<p>{{i18n 'about.details'}}</p>
+
+				<h3>{{i18n 'builtWith'}}</h3>
+				<p>{{#markdown}}{{i18n 'builtWith.details'}}{{/markdown}}</p>
+
+				<p class="text-center social-links">
+					<a href="mailto:laddih@gmail.com" target="_blank"><span class="fui-mail"></span></a>
+					<a href="https://github.com/laddi/skatakot" target="_blank"><span class="fui-github"></span></a>
+					<a href="https://www.facebook.com/laddih" target="_blank"><span class="fui-facebook"></span></a>
+					<a href="https://twitter.com/laddih" target="_blank"><span class="fui-twitter"></span></a>
+				</p>
+			</div>
+		</div>
+	</div>
+</template>

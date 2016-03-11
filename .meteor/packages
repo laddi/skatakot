@@ -46,3 +46,4 @@ cfs:filesystem
 cfs:gridfs@0.0.33
 cfs:graphicsmagick
 jss:flat-ui
+markdown

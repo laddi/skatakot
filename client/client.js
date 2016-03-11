@@ -1,3 +1,9 @@
+Template.layout.events({
+	'click .nav a': function() {
+		$('.navbar-toggle').click();
+	}
+});
+
 mapData = {
 	position: new ReactiveVar(null),
 	zoom: new ReactiveVar(10),
@@ -43,9 +49,9 @@ createMarker = function(map, hut) {
 
 getIconUrl = function(status) {
 	var url = '/in-use.svg';
-	if (status === 'status-needs-repair') {
+	if (status === 'status-needs-repair' || status === 'status-privately-owned') {
 		url = '/needs-repair.svg';
-	} else if (status === 'status-destroyed') {
+	} else if (status === 'status-destroyed' || status === 'status-burnt') {
 		url = '/destroyed.svg';
 	} else if (status === 'status-rebuilt') {
 		url = '/rebuilt.svg';
