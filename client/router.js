@@ -53,4 +53,11 @@ Router.map(function() {
 			};
 		}
 	});
+
+	this.route('about', {
+		path: 'about',
+		layoutTemplate: 'layout',
+		template: 'about',
+		title: 'About'
+	});
 });

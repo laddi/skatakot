@@ -32,13 +32,15 @@ Template.map.onCreated(function() {
 		// Add markers for all the huts
 		Huts.find({}, { sort: { status: -1, name: 1 }}).observe({
 			added: hut => {
-				let marker = createMarker(map, hut);
+				if (!markers[hut._id]) {
+					let marker = createMarker(map, hut);
 
-				google.maps.event.addListener(marker, 'click', function() {
-					Router.go('hut', { hutId: hut._id });
-				});
+					google.maps.event.addListener(marker, 'click', function() {
+						Router.go('hut', { hutId: hut._id });
+					});
 
-				markers[hut._id] = marker;
+					markers[hut._id] = marker;
+				}
 			},
 
 			changed: (hut, oldHut) => {
