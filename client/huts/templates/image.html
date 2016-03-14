@@ -5,6 +5,13 @@
 				<h3 class="text-center">
 					<a href="{{pathFor 'hut' hutId=hut._id}}"><span class="fui-arrow-left"></span></a>
 					{{hut.name}}
+
+					{{#if isAdmin}}
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageModal">
+							{{i18n 'edit-image-metadata'}}
+						</button>
+					{{/if}}
 				</h3>
 				<hr />
 
@@ -22,9 +29,52 @@
 
 				<img src="{{image.url}}" alt="" class="img-rounded img-responsive center-block" />
 				<p class="text-center">
-					<small>{{image.name}}</small>
+					{{#if caption image}}
+						<small>{{caption image}}</small>
+					{{else}}
+						<small>{{image.name}}</small>
+					{{/if}}
 				</p>
 			</div>
 		</div>
 	</div>
+
+	{{#if isAdmin}}
+		<div class="modal fade" id="imageModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">{{i18n 'updateImage'}}</h4>
+					</div>
+					<div class="modal-body">
+						<form id="imageForm" class="form-horizontal">
+							<div class="form-group">
+								<label for="image-caption" class="col-sm-3 control-label">{{i18n 'image-caption'}}</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="metadata[caption]" id="image-caption" value="{{image.metadata.caption}}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="image-year" class="col-sm-3 control-label">{{i18n 'image-year'}}</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="metadata[yearTaken]" id="image-year" value="{{image.metadata.yearTaken}}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="image-photographer" class="col-sm-3 control-label">{{i18n 'image-photographer'}}</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="metadata[takenBy]" id="image-photographer" value="{{image.metadata.takenBy}}" />
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">{{i18n 'close'}}</button>
+						<button type="button" class="btn btn-primary saveChanges" data-dismiss="modal">{{i18n 'saveChanges'}}</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	{{/if}}
 </template>

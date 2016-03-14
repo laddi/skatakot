@@ -10,6 +10,10 @@ mapData = {
 	type: new ReactiveVar(null)
 };
 
+Blaze.registerHelper('or', function(p, q) {
+	return p || q;
+});
+
 Blaze.registerHelper('convertToDegrees', function(latitude, longitude) {
 	// got dashes?
 	var latitudeHemisphere = 'N';
@@ -113,3 +117,73 @@ Meteor.startup(function() {
 		spinnerOptions: { color: '#000', top: '80%' } // options as per [spin.js](http://fgnass.github.io/spin.js/)
 	});
 });
+
+$.fn.serializeJSON = function() {
+	// Use with forms of 'application/json' encoding.
+	// http://www.w3.org/TR/html-json-forms/
+	var arr = this.serializeArray();
+
+	var retObj = {};
+	$.each(arr, function() {
+		mergeObjFields(retObj, this.value, this.name, []);
+	});
+	return retObj;
+};
+
+function mergeObjFields(obj, value, field, keys) {
+	// Merge together fields of nested JSON keys. For example with the
+	// object `{foo: {bar: 0}}`, the value `1`, and the field
+	// `'foo[baz]'` the object will become `{foo: {bar: 0, baz: 1}}`.
+	//
+	// Note: This method takes only a single name-value pair. And
+	// recursively breaks the name down into nested fields. It is
+	// designed to be called iteratively over all key-value pairs of a
+	// "flat" object.
+	//
+	// Note: This method mutates the object rather then return a new
+	// one.
+	//
+	// Reference: http://www.w3.org/TR/html-json-forms/
+
+	var match = field.match(/\[([_A-Za-z]+[_\-\w\d]*|\d+|)\]\s*$/);
+	// Use this to traverse the tree by reference.
+	var node = obj;
+
+	if (!match) {
+		keys.push(field);
+		// Traverse to the desired leaf.
+		$.each(keys.reverse(), function(i) {
+			var attr = this.length === 0 ? node.length : this;
+			if (i + 1 === keys.length) {
+				// We are at the leaf.
+				if (typeof node[attr] !== 'undefined') {
+					// Node exits, hence it's an array. Turn it into
+					// one if it isn't already.
+					if (!Array.isArray(node[attr])) {
+						let temp = node[attr];
+						node[attr] = [temp];
+					}
+					node[attr].push(value);
+				} else {
+					node[attr] = value;
+				}
+			} else {
+				if (typeof node[attr] === 'undefined') {
+					node[attr] =
+						// Is the next branch an object or an array?
+						(typeof keys[i + 1] === 'number' || keys[i + 1] === '') ? [] : {};
+				}
+				// Move one more branch down the tree.
+				node = node[attr];
+			}
+		});
+
+		return;
+	}
+
+	var name = match[1];
+	var n = parseInt(name, 10);
+	keys.push(isNaN(n) ? name : n);
+
+	mergeObjFields(obj, value, field.slice(0, -match[0].length), keys);
+}
