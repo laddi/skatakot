@@ -6,6 +6,20 @@
 					<a href="{{pathFor 'hut' hutId=hut._id}}"><span class="fui-arrow-left"></span></a>
 					{{hut.name}}
 				</h3>
+				<hr />
+
+				{{#if images}}
+					<div class="row images">
+						{{#each images}}
+							<div class="col-xs-4 col-md-1">
+								<a href="{{pathFor 'image' hutId=hut._id imageId=this._id}}" class="thumbnail">
+									<img src="{{this.url store='thumbs'}}" alt="" />
+								</a>
+							</div>
+						{{/each}}
+					</div>
+				{{/if}}
+
 				<img src="{{image.url}}" alt="" class="img-rounded img-responsive center-block" />
 				<p class="text-center">
 					<small>{{image.name}}</small>

@@ -5,4 +5,5 @@ Template.image.onCreated(function() {
 Template.image.helpers({
 	hut: () => Huts.findOne(Template.instance().data.hutId),
 	image: () => Images.findOne(Template.instance().data.imageId),
+	images: () => Images.find({}, { sort: { uploadedAt: 1 } })
 });

@@ -42,7 +42,7 @@ createMarker = function(map, hut) {
 		map: map.instance,
 		title: hut.name,
 		icon: getIconImage(hut.status),
-		optimized: false,
+		// optimized: false,
 		zIndex: hut.status === 'status-in-use' ? 1000 : 999
 	});
 

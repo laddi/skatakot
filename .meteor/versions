@@ -52,6 +52,7 @@ check@1.1.0
 coffeescript@1.0.11
 dburles:collection-helpers@1.0.4
 dburles:google-maps@1.1.5
+dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -86,12 +87,16 @@ iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.4
 jss:flat-ui@2.2.2
+lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 less@2.5.1
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
 markdown@1.0.5
+maximum:package-base@1.1.2
+maximum:reactive-cursors@0.2.0
+maximum:server-transform@0.4.1
 mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
@@ -116,6 +121,9 @@ oauth1@1.1.5
 oauth2@1.1.5
 observe-sequence@1.0.7
 ordered-dict@1.0.4
+peerlibrary:assert@0.2.5
+peerlibrary:fiber-utils@0.5.1
+peerlibrary:server-autorun@0.5.1
 promise@0.5.1
 raix:eventemitter@0.1.3
 raix:handlebar-helpers@0.2.5

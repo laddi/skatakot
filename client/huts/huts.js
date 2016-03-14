@@ -4,5 +4,5 @@ Template.huts.onCreated(function() {
 });
 
 Template.huts.helpers({
-	huts: () => Huts.find({}, { sort: { name: 1 } })
+	huts: () => Huts.find({}, { sort: { cleanName: 1 } })
 });

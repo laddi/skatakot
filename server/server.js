@@ -36,7 +36,7 @@ Huts.allow({
 
 Meteor.startup(function() {
 	// code to run on server at startup
-	Meteor.publish('huts', function(id) {
+	Meteor.publishTransformed('huts', function(id) {
 		if (id) {
 			let hut = Huts.findOne(id);
 			let array = [
@@ -58,7 +58,12 @@ Meteor.startup(function() {
 
 			return array;
 		}
-		return Huts.find();
+
+		return Huts.find().serverTransform(function(doc) {
+			doc.cleanName = convertString(doc.name).toLowerCase();
+
+			return doc;
+		});
 	});
 
 	Meteor.publish('groups', function() {

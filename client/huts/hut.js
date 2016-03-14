@@ -27,7 +27,7 @@ Template.hut.onCreated(function() {
 
 Template.hut.helpers({
 	hut: () => Huts.findOne(Template.instance().data.hutId),
-	images: () => Images.find(),
+	images: () => Images.find({}, { sort: { uploadedAt: 1 } }),
 	addBreaks(text) {
 		return text && text.replace(/(\r\n|\n|\r)/gm, '<br />');
 	},
