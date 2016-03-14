@@ -41,7 +41,9 @@ createMarker = function(map, hut) {
 		animation: google.maps.Animation.DROP,
 		map: map.instance,
 		title: hut.name,
-		icon: getIconImage(hut.status)
+		icon: getIconImage(hut.status),
+		optimized: false,
+		zIndex: hut.status === 'status-in-use' ? 1000 : 999
 	});
 
 	return marker;
